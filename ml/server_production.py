@@ -34,7 +34,8 @@ PROJECT_ROOT = ML_DIR.parent
 
 # v6 LoRA adapters (classification task type - FIXED!)
 LORA_PATH = os.getenv("LORA_PATH", str(ML_DIR / "outputs" / "lora_phi3_v6" / "final"))
-BASE_MODEL_PATH = str(PROJECT_ROOT / "models" / "phi3")
+# Support both HuggingFace (for CI/CD) and local path (for development)
+BASE_MODEL_PATH = os.getenv("PHI3_MODEL_PATH", str(PROJECT_ROOT / "models" / "phi3"))
 MASTRA_BACKEND_URL = os.getenv("MASTRA_BACKEND_URL", "http://localhost:3001")
 model = None
 tokenizer = None

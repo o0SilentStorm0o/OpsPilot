@@ -49,6 +49,9 @@ jobs:
         pip install pytest pytest-cov
     
     - name: Train model
+      env:
+        PHI3_MODEL_PATH: "microsoft/Phi-3-mini-4k-instruct"
+        HF_TOKEN: ${{ secrets.HF_TOKEN }}
       run: |
         cd ml
         python train_model_classification.py \
@@ -64,6 +67,25 @@ jobs:
         name: trained-model
         path: ml/outputs/opspilot-phi3-lora-${{ github.run_number }}/
         retention-days: 30
+    
+    - name: Upload to HuggingFace (optional)
+      if: github.event_name == 'workflow_dispatch' && github.event.inputs.force_retrain == 'true'
+      env:
+        HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      run: |
+        cd ml
+        pip install huggingface_hub
+        python -c "
+        from huggingface_hub import HfApi
+        api = HfApi(token='${{ secrets.HF_TOKEN }}')
+        api.upload_folder(
+            folder_path='outputs/opspilot-phi3-lora-${{ github.run_number }}',
+            repo_id='SilentStorm99/opspilot-phi3-lora-v6',
+            repo_type='model',
+            commit_message='Auto-trained model from CI run #${{ github.run_number }}'
+        )
+        print('✅ Model uploaded to HuggingFace')
+        "
   
   # Stage 2: Evaluate model
   evaluate:

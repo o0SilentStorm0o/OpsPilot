@@ -48,9 +48,15 @@ from datasets import Dataset
 # ================================
 # Configuration
 # ================================
-MODEL_PATH = "../models/phi3"  # Base Phi-3 model directory (one level up from ml/)
+# Use HuggingFace model ID for CI/CD compatibility
+# Fallback to local path for local development if HF download fails
+import os
+
+MODEL_PATH = os.getenv("PHI3_MODEL_PATH", "microsoft/Phi-3-mini-4k-instruct")
 DATASET_PATH = "./datasets/incident_logs_v5_train.csv"  # Script runs from ml/ folder
 OUTPUT_DIR = "./outputs/lora_phi3_v6"  # Changed from v5 to v6
+
+print(f"🔧 Using model: {MODEL_PATH}")
 
 # Hyperparameters (IDENTICAL to v5)
 MAX_LENGTH = 1024
