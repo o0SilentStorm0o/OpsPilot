@@ -1,0 +1,272 @@
+name: Model Training & Deployment Pipeline
+
+on:
+  # Trigger on new training data
+  push:
+    paths:
+      - 'ml/data/**'
+      - 'ml/train.py'
+  
+  # Manual trigger for retraining
+  workflow_dispatch:
+    inputs:
+      force_retrain:
+        description: 'Force model retraining'
+        required: false
+        default: 'false'
+  
+  # Weekly scheduled retraining
+  schedule:
+    - cron: '0 2 * * 0'  # Every Sunday 2 AM
+
+env:
+  PYTHON_VERSION: '3.11'
+  MODEL_REGISTRY: 'opspilot-models'
+
+jobs:
+  # Stage 1: Train model
+  train:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('ml/requirements.txt') }}
+    
+    - name: Install dependencies
+      run: |
+        pip install -r ml/requirements.txt
+        pip install pytest pytest-cov
+    
+    - name: Train model
+      run: |
+        cd ml
+        python train.py \
+          --data data/incidents_train.csv \
+          --output outputs/opspilot-phi3-lora-${{ github.run_number }} \
+          --epochs 3 \
+          --batch-size 4 \
+          --learning-rate 2e-5
+      
+    - name: Upload model artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: trained-model
+        path: ml/outputs/opspilot-phi3-lora-${{ github.run_number }}/
+        retention-days: 30
+  
+  # Stage 2: Evaluate model
+  evaluate:
+    needs: train
+    runs-on: ubuntu-latest
+    
+    outputs:
+      accuracy: ${{ steps.eval.outputs.accuracy }}
+      should_deploy: ${{ steps.eval.outputs.should_deploy }}
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Download model
+      uses: actions/download-artifact@v3
+      with:
+        name: trained-model
+        path: ml/outputs/current-model/
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install dependencies
+      run: pip install -r ml/requirements.txt
+    
+    - name: Run evaluation
+      id: eval
+      run: |
+        cd ml
+        python evaluate.py \
+          --model outputs/current-model \
+          --test-data data/incidents_test.csv \
+          --output outputs/evaluations/eval_${{ github.run_number }}.json
+        
+        # Extract accuracy
+        ACCURACY=$(jq -r '.accuracy' outputs/evaluations/eval_${{ github.run_number }}.json)
+        echo "accuracy=$ACCURACY" >> $GITHUB_OUTPUT
+        
+        # Compare with baseline (0.83 = current production)
+        BASELINE=0.83
+        if (( $(echo "$ACCURACY > $BASELINE" | bc -l) )); then
+          echo "should_deploy=true" >> $GITHUB_OUTPUT
+          echo "✅ Model improved! $ACCURACY > $BASELINE"
+        else
+          echo "should_deploy=false" >> $GITHUB_OUTPUT
+          echo "❌ Model didn't improve: $ACCURACY ≤ $BASELINE"
+        fi
+    
+    - name: Upload evaluation results
+      uses: actions/upload-artifact@v3
+      with:
+        name: evaluation-results
+        path: ml/outputs/evaluations/
+    
+    - name: Comment on PR (if applicable)
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `## 🤖 Model Evaluation Results\n\n` +
+                  `**Accuracy:** ${{ steps.eval.outputs.accuracy }}\n` +
+                  `**Baseline:** 0.83\n` +
+                  `**Status:** ${{ steps.eval.outputs.should_deploy == 'true' && '✅ Ready to deploy' || '❌ Needs improvement' }}`
+          })
+  
+  # Stage 3: Deploy to staging
+  deploy-staging:
+    needs: evaluate
+    if: needs.evaluate.outputs.should_deploy == 'true'
+    runs-on: ubuntu-latest
+    environment: staging
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Download model
+      uses: actions/download-artifact@v3
+      with:
+        name: trained-model
+        path: ml/outputs/current-model/
+    
+    - name: Build Docker image
+      run: |
+        docker build -t ${{ env.MODEL_REGISTRY }}/opspilot-ml:staging-${{ github.run_number }} ml/
+    
+    - name: Push to registry
+      run: |
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        docker push ${{ env.MODEL_REGISTRY }}/opspilot-ml:staging-${{ github.run_number }}
+    
+    - name: Deploy to staging
+      run: |
+        # Update deployment (example for Kubernetes)
+        kubectl set image deployment/opspilot-ml \
+          ml=${{ env.MODEL_REGISTRY }}/opspilot-ml:staging-${{ github.run_number }} \
+          -n staging
+        
+        kubectl rollout status deployment/opspilot-ml -n staging
+    
+    - name: Run smoke tests
+      run: |
+        # Wait for deployment
+        sleep 30
+        
+        # Test health endpoint
+        curl -f http://staging.opspilot.example.com/health || exit 1
+        
+        # Test classification
+        curl -X POST http://staging.opspilot.example.com/classify \
+          -H "Content-Type: application/json" \
+          -d '{"title":"Test incident","description":"Database timeout","source":"CI/CD"}' \
+          | jq -e '.category == "Database"' || exit 1
+        
+        echo "✅ Smoke tests passed!"
+  
+  # Stage 4: Deploy to production (manual approval)
+  deploy-production:
+    needs: [evaluate, deploy-staging]
+    runs-on: ubuntu-latest
+    environment: production  # Requires manual approval in GitHub
+    
+    steps:
+    - name: Download model
+      uses: actions/download-artifact@v3
+      with:
+        name: trained-model
+        path: ml/outputs/current-model/
+    
+    - name: Build production image
+      run: |
+        docker build -t ${{ env.MODEL_REGISTRY }}/opspilot-ml:v1.${{ github.run_number }} ml/
+        docker tag ${{ env.MODEL_REGISTRY }}/opspilot-ml:v1.${{ github.run_number }} \
+                   ${{ env.MODEL_REGISTRY }}/opspilot-ml:latest
+    
+    - name: Push production image
+      run: |
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        docker push ${{ env.MODEL_REGISTRY }}/opspilot-ml:v1.${{ github.run_number }}
+        docker push ${{ env.MODEL_REGISTRY }}/opspilot-ml:latest
+    
+    - name: Deploy to production
+      run: |
+        kubectl set image deployment/opspilot-ml \
+          ml=${{ env.MODEL_REGISTRY }}/opspilot-ml:v1.${{ github.run_number }} \
+          -n production
+        
+        kubectl rollout status deployment/opspilot-ml -n production
+    
+    - name: Create release tag
+      run: |
+        git tag -a model-v1.${{ github.run_number }} -m "Model release: accuracy ${{ needs.evaluate.outputs.accuracy }}"
+        git push origin model-v1.${{ github.run_number }}
+    
+    - name: Notify team
+      uses: slackapi/slack-github-action@v1
+      with:
+        payload: |
+          {
+            "text": "🚀 New model deployed to production!",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*OpsPilot Model Deployment*\n*Version:* v1.${{ github.run_number }}\n*Accuracy:* ${{ needs.evaluate.outputs.accuracy }}\n*Status:* ✅ Live in production"
+                }
+              }
+            ]
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+  
+  # Stage 5: Monitor deployment
+  monitor:
+    needs: deploy-production
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Monitor for 1 hour
+      run: |
+        echo "🔍 Monitoring production metrics for 1 hour..."
+        
+        # Query Prometheus for error rate
+        for i in {1..12}; do
+          ERROR_RATE=$(curl -s 'http://prometheus:9090/api/v1/query?query=rate(phi3_inference_errors_total[5m])' | jq -r '.data.result[0].value[1]')
+          
+          if (( $(echo "$ERROR_RATE > 0.05" | bc -l) )); then
+            echo "❌ High error rate detected: $ERROR_RATE"
+            echo "Rolling back..."
+            kubectl rollout undo deployment/opspilot-ml -n production
+            exit 1
+          fi
+          
+          echo "✅ Error rate OK: $ERROR_RATE (check $i/12)"
+          sleep 300  # 5 minutes
+        done
+        
+        echo "✅ Monitoring complete. Deployment stable."

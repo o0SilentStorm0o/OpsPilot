@@ -1,0 +1,770 @@
+[
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Service database not responding\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: low\nRecommended Action: Investigate application systems, check logs for CPU, and escalate if necessary.",
+    "category": "Application",
+    "severity": "low",
+    "incident": "Service database not responding",
+    "prompt": "Classify the following IT incident:\n\nIncident: Service database not responding\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: low\nRecommended Action: Investigate application systems, check logs for CPU, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Failed to connect to database: authentication failed\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: high\nRecommended Action: Investigate database systems, check logs for SQL, and escalate if necessary.",
+    "category": "Database",
+    "severity": "high",
+    "incident": "Failed to connect to database: authentication failed",
+    "prompt": "Classify the following IT incident:\n\nIncident: Failed to connect to database: authentication failed\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: high\nRecommended Action: Investigate database systems, check logs for SQL, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: SSL certificate expired for api.example.com\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: medium\nRecommended Action: Investigate security systems, check logs for unauthorized, and escalate if necessary.",
+    "category": "Security",
+    "severity": "medium",
+    "incident": "SSL certificate expired for api.example.com",
+    "prompt": "Classify the following IT incident:\n\nIncident: SSL certificate expired for api.example.com\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: medium\nRecommended Action: Investigate security systems, check logs for unauthorized, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Memory pressure on server-6\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: critical\nRecommended Action: Investigate performance systems, check logs for degradation, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "critical",
+    "incident": "Memory pressure on server-6",
+    "prompt": "Classify the following IT incident:\n\nIncident: Memory pressure on server-6\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: critical\nRecommended Action: Investigate performance systems, check logs for degradation, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Service database not responding\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: medium\nRecommended Action: Investigate application systems, check logs for error, and escalate if necessary.",
+    "category": "Application",
+    "severity": "medium",
+    "incident": "Service database not responding",
+    "prompt": "Classify the following IT incident:\n\nIncident: Service database not responding\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: medium\nRecommended Action: Investigate application systems, check logs for error, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Performance bottleneck in cache\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: medium\nRecommended Action: Investigate performance systems, check logs for degradation, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "medium",
+    "incident": "Performance bottleneck in cache",
+    "prompt": "Classify the following IT incident:\n\nIncident: Performance bottleneck in cache\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: medium\nRecommended Action: Investigate performance systems, check logs for degradation, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Potential intrusion detected: brute force\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: high\nRecommended Action: Investigate security systems, check logs for SSL, and escalate if necessary.",
+    "category": "Security",
+    "severity": "high",
+    "incident": "Potential intrusion detected: brute force",
+    "prompt": "Classify the following IT incident:\n\nIncident: Potential intrusion detected: brute force\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: high\nRecommended Action: Investigate security systems, check logs for SSL, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: High packet loss detected: 96%\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: critical\nRecommended Action: Investigate network systems, check logs for packet loss, and escalate if necessary.",
+    "category": "Network",
+    "severity": "critical",
+    "incident": "High packet loss detected: 96%",
+    "prompt": "Classify the following IT incident:\n\nIncident: High packet loss detected: 96%\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: critical\nRecommended Action: Investigate network systems, check logs for packet loss, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Firewall blocking port 8080\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: high\nRecommended Action: Investigate network systems, check logs for DNS, and escalate if necessary.",
+    "category": "Network",
+    "severity": "high",
+    "incident": "Firewall blocking port 8080",
+    "prompt": "Classify the following IT incident:\n\nIncident: Firewall blocking port 8080\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: high\nRecommended Action: Investigate network systems, check logs for DNS, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Security scan detected vulnerability: CVE-2021-9980\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: low\nRecommended Action: Investigate security systems, check logs for unauthorized, and escalate if necessary.",
+    "category": "Security",
+    "severity": "low",
+    "incident": "Security scan detected vulnerability: CVE-2021-9980",
+    "prompt": "Classify the following IT incident:\n\nIncident: Security scan detected vulnerability: CVE-2021-9980\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: low\nRecommended Action: Investigate security systems, check logs for unauthorized, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Replication lag exceeds 161s\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: critical\nRecommended Action: Investigate database systems, check logs for SQL, and escalate if necessary.",
+    "category": "Database",
+    "severity": "critical",
+    "incident": "Replication lag exceeds 161s",
+    "prompt": "Classify the following IT incident:\n\nIncident: Replication lag exceeds 161s\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: critical\nRecommended Action: Investigate database systems, check logs for SQL, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Failed to connect to database: timeout\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: high\nRecommended Action: Investigate database systems, check logs for database, and escalate if necessary.",
+    "category": "Database",
+    "severity": "high",
+    "incident": "Failed to connect to database: timeout",
+    "prompt": "Classify the following IT incident:\n\nIncident: Failed to connect to database: timeout\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: high\nRecommended Action: Investigate database systems, check logs for database, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Hardware watchdog timeout\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: critical\nRecommended Action: Investigate hardware systems, check logs for power, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "critical",
+    "incident": "Hardware watchdog timeout",
+    "prompt": "Classify the following IT incident:\n\nIncident: Hardware watchdog timeout\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: critical\nRecommended Action: Investigate hardware systems, check logs for power, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Interface eth0 is down\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: high\nRecommended Action: Investigate network systems, check logs for timeout, and escalate if necessary.",
+    "category": "Network",
+    "severity": "high",
+    "incident": "Interface eth0 is down",
+    "prompt": "Classify the following IT incident:\n\nIncident: Interface eth0 is down\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: high\nRecommended Action: Investigate network systems, check logs for timeout, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Fan speed critical on server-1\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: low\nRecommended Action: Investigate hardware systems, check logs for temperature, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "low",
+    "incident": "Fan speed critical on server-1",
+    "prompt": "Classify the following IT incident:\n\nIncident: Fan speed critical on server-1\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: low\nRecommended Action: Investigate hardware systems, check logs for temperature, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Interface eth1 is down\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: medium\nRecommended Action: Investigate network systems, check logs for port, and escalate if necessary.",
+    "category": "Network",
+    "severity": "medium",
+    "incident": "Interface eth1 is down",
+    "prompt": "Classify the following IT incident:\n\nIncident: Interface eth1 is down\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: medium\nRecommended Action: Investigate network systems, check logs for port, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Memory module error on server-4\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: medium\nRecommended Action: Investigate hardware systems, check logs for hardware, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "medium",
+    "incident": "Memory module error on server-4",
+    "prompt": "Classify the following IT incident:\n\nIncident: Memory module error on server-4\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: medium\nRecommended Action: Investigate hardware systems, check logs for hardware, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Thread pool exhausted in auth-service\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: critical\nRecommended Action: Investigate application systems, check logs for exception, and escalate if necessary.",
+    "category": "Application",
+    "severity": "critical",
+    "incident": "Thread pool exhausted in auth-service",
+    "prompt": "Classify the following IT incident:\n\nIncident: Thread pool exhausted in auth-service\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: critical\nRecommended Action: Investigate application systems, check logs for exception, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Slow query detected: 8172ms\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: low\nRecommended Action: Investigate database systems, check logs for database, and escalate if necessary.",
+    "category": "Database",
+    "severity": "low",
+    "incident": "Slow query detected: 8172ms",
+    "prompt": "Classify the following IT incident:\n\nIncident: Slow query detected: 8172ms\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: low\nRecommended Action: Investigate database systems, check logs for database, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: NullPointerException in DataHandler\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: critical\nRecommended Action: Investigate application systems, check logs for CPU, and escalate if necessary.",
+    "category": "Application",
+    "severity": "critical",
+    "incident": "NullPointerException in DataHandler",
+    "prompt": "Classify the following IT incident:\n\nIncident: NullPointerException in DataHandler\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: critical\nRecommended Action: Investigate application systems, check logs for CPU, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Security scan detected vulnerability: CVE-2023-9004\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: high\nRecommended Action: Investigate security systems, check logs for intrusion, and escalate if necessary.",
+    "category": "Security",
+    "severity": "high",
+    "incident": "Security scan detected vulnerability: CVE-2023-9004",
+    "prompt": "Classify the following IT incident:\n\nIncident: Security scan detected vulnerability: CVE-2023-9004\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: high\nRecommended Action: Investigate security systems, check logs for intrusion, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: API latency exceeds SLA: 3819ms\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: critical\nRecommended Action: Investigate performance systems, check logs for latency, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "critical",
+    "incident": "API latency exceeds SLA: 3819ms",
+    "prompt": "Classify the following IT incident:\n\nIncident: API latency exceeds SLA: 3819ms\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: critical\nRecommended Action: Investigate performance systems, check logs for latency, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Power supply redundancy lost\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: medium\nRecommended Action: Investigate hardware systems, check logs for fan, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "medium",
+    "incident": "Power supply redundancy lost",
+    "prompt": "Classify the following IT incident:\n\nIncident: Power supply redundancy lost\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: medium\nRecommended Action: Investigate hardware systems, check logs for fan, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Request queue backlog: 45 requests\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: high\nRecommended Action: Investigate performance systems, check logs for slow, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "high",
+    "incident": "Request queue backlog: 45 requests",
+    "prompt": "Classify the following IT incident:\n\nIncident: Request queue backlog: 45 requests\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: high\nRecommended Action: Investigate performance systems, check logs for slow, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Request queue backlog: 8 requests\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: low\nRecommended Action: Investigate performance systems, check logs for latency, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "low",
+    "incident": "Request queue backlog: 8 requests",
+    "prompt": "Classify the following IT incident:\n\nIncident: Request queue backlog: 8 requests\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: low\nRecommended Action: Investigate performance systems, check logs for latency, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: High temperature alert: 83°C\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: low\nRecommended Action: Investigate hardware systems, check logs for fan, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "low",
+    "incident": "High temperature alert: 83°C",
+    "prompt": "Classify the following IT incident:\n\nIncident: High temperature alert: 83°C\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: low\nRecommended Action: Investigate hardware systems, check logs for fan, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Service web-server not responding\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: critical\nRecommended Action: Investigate application systems, check logs for exception, and escalate if necessary.",
+    "category": "Application",
+    "severity": "critical",
+    "incident": "Service web-server not responding",
+    "prompt": "Classify the following IT incident:\n\nIncident: Service web-server not responding\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: critical\nRecommended Action: Investigate application systems, check logs for exception, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Deadlock detected on table transactions\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: low\nRecommended Action: Investigate database systems, check logs for deadlock, and escalate if necessary.",
+    "category": "Database",
+    "severity": "low",
+    "incident": "Deadlock detected on table transactions",
+    "prompt": "Classify the following IT incident:\n\nIncident: Deadlock detected on table transactions\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: low\nRecommended Action: Investigate database systems, check logs for deadlock, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Thread pool exhausted in database\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: critical\nRecommended Action: Investigate application systems, check logs for memory, and escalate if necessary.",
+    "category": "Application",
+    "severity": "critical",
+    "incident": "Thread pool exhausted in database",
+    "prompt": "Classify the following IT incident:\n\nIncident: Thread pool exhausted in database\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: critical\nRecommended Action: Investigate application systems, check logs for memory, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Transaction rollback: resource exhaustion\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: low\nRecommended Action: Investigate database systems, check logs for transaction, and escalate if necessary.",
+    "category": "Database",
+    "severity": "low",
+    "incident": "Transaction rollback: resource exhaustion",
+    "prompt": "Classify the following IT incident:\n\nIncident: Transaction rollback: resource exhaustion\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: low\nRecommended Action: Investigate database systems, check logs for transaction, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Failed to connect to database: connection refused\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: high\nRecommended Action: Investigate database systems, check logs for connection pool, and escalate if necessary.",
+    "category": "Database",
+    "severity": "high",
+    "incident": "Failed to connect to database: connection refused",
+    "prompt": "Classify the following IT incident:\n\nIncident: Failed to connect to database: connection refused\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: high\nRecommended Action: Investigate database systems, check logs for connection pool, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Unauthorized access attempt from 99.193.38.160\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: high\nRecommended Action: Investigate security systems, check logs for certificate, and escalate if necessary.",
+    "category": "Security",
+    "severity": "high",
+    "incident": "Unauthorized access attempt from 99.193.38.160",
+    "prompt": "Classify the following IT incident:\n\nIncident: Unauthorized access attempt from 99.193.38.160\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: high\nRecommended Action: Investigate security systems, check logs for certificate, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Thread pool exhausted in web-server\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: medium\nRecommended Action: Investigate application systems, check logs for memory, and escalate if necessary.",
+    "category": "Application",
+    "severity": "medium",
+    "incident": "Thread pool exhausted in web-server",
+    "prompt": "Classify the following IT incident:\n\nIncident: Thread pool exhausted in web-server\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: medium\nRecommended Action: Investigate application systems, check logs for memory, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: NullPointerException in PaymentProcessor\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: critical\nRecommended Action: Investigate application systems, check logs for error, and escalate if necessary.",
+    "category": "Application",
+    "severity": "critical",
+    "incident": "NullPointerException in PaymentProcessor",
+    "prompt": "Classify the following IT incident:\n\nIncident: NullPointerException in PaymentProcessor\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: critical\nRecommended Action: Investigate application systems, check logs for error, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Cache hit rate below threshold: 71%\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: medium\nRecommended Action: Investigate performance systems, check logs for latency, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "medium",
+    "incident": "Cache hit rate below threshold: 71%",
+    "prompt": "Classify the following IT incident:\n\nIncident: Cache hit rate below threshold: 71%\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: medium\nRecommended Action: Investigate performance systems, check logs for latency, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Interface eth0 is down\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: high\nRecommended Action: Investigate network systems, check logs for port, and escalate if necessary.",
+    "category": "Network",
+    "severity": "high",
+    "incident": "Interface eth0 is down",
+    "prompt": "Classify the following IT incident:\n\nIncident: Interface eth0 is down\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: high\nRecommended Action: Investigate network systems, check logs for port, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Hardware watchdog timeout\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: critical\nRecommended Action: Investigate hardware systems, check logs for temperature, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "critical",
+    "incident": "Hardware watchdog timeout",
+    "prompt": "Classify the following IT incident:\n\nIncident: Hardware watchdog timeout\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: critical\nRecommended Action: Investigate hardware systems, check logs for temperature, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: RAID array degraded: raid-3\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: medium\nRecommended Action: Investigate hardware systems, check logs for disk, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "medium",
+    "incident": "RAID array degraded: raid-3",
+    "prompt": "Classify the following IT incident:\n\nIncident: RAID array degraded: raid-3\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: medium\nRecommended Action: Investigate hardware systems, check logs for disk, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Memory module error on server-1\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: high\nRecommended Action: Investigate hardware systems, check logs for hardware, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "high",
+    "incident": "Memory module error on server-1",
+    "prompt": "Classify the following IT incident:\n\nIncident: Memory module error on server-1\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: high\nRecommended Action: Investigate hardware systems, check logs for hardware, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Unauthorized access attempt from 5.101.121.39\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: critical\nRecommended Action: Investigate security systems, check logs for intrusion, and escalate if necessary.",
+    "category": "Security",
+    "severity": "critical",
+    "incident": "Unauthorized access attempt from 5.101.121.39",
+    "prompt": "Classify the following IT incident:\n\nIncident: Unauthorized access attempt from 5.101.121.39\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: critical\nRecommended Action: Investigate security systems, check logs for intrusion, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Performance bottleneck in API\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: low\nRecommended Action: Investigate performance systems, check logs for degradation, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "low",
+    "incident": "Performance bottleneck in API",
+    "prompt": "Classify the following IT incident:\n\nIncident: Performance bottleneck in API\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: low\nRecommended Action: Investigate performance systems, check logs for degradation, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Disk failure predicted: /dev/sdb4\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: critical\nRecommended Action: Investigate hardware systems, check logs for temperature, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "critical",
+    "incident": "Disk failure predicted: /dev/sdb4",
+    "prompt": "Classify the following IT incident:\n\nIncident: Disk failure predicted: /dev/sdb4\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: critical\nRecommended Action: Investigate hardware systems, check logs for temperature, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Memory pressure on server-10\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: medium\nRecommended Action: Investigate performance systems, check logs for bottleneck, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "medium",
+    "incident": "Memory pressure on server-10",
+    "prompt": "Classify the following IT incident:\n\nIncident: Memory pressure on server-10\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: medium\nRecommended Action: Investigate performance systems, check logs for bottleneck, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Database disk space critical: 99%\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: critical\nRecommended Action: Investigate database systems, check logs for query, and escalate if necessary.",
+    "category": "Database",
+    "severity": "critical",
+    "incident": "Database disk space critical: 99%",
+    "prompt": "Classify the following IT incident:\n\nIncident: Database disk space critical: 99%\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: critical\nRecommended Action: Investigate database systems, check logs for query, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: NullPointerException in DataHandler\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: low\nRecommended Action: Investigate application systems, check logs for thread, and escalate if necessary.",
+    "category": "Application",
+    "severity": "low",
+    "incident": "NullPointerException in DataHandler",
+    "prompt": "Classify the following IT incident:\n\nIncident: NullPointerException in DataHandler\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: low\nRecommended Action: Investigate application systems, check logs for thread, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Power supply redundancy lost\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: low\nRecommended Action: Investigate hardware systems, check logs for temperature, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "low",
+    "incident": "Power supply redundancy lost",
+    "prompt": "Classify the following IT incident:\n\nIncident: Power supply redundancy lost\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: low\nRecommended Action: Investigate hardware systems, check logs for temperature, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Transaction rollback: resource exhaustion\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: high\nRecommended Action: Investigate database systems, check logs for database, and escalate if necessary.",
+    "category": "Database",
+    "severity": "high",
+    "incident": "Transaction rollback: resource exhaustion",
+    "prompt": "Classify the following IT incident:\n\nIncident: Transaction rollback: resource exhaustion\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: high\nRecommended Action: Investigate database systems, check logs for database, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Failed to connect to database: authentication failed\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: critical\nRecommended Action: Investigate database systems, check logs for query, and escalate if necessary.",
+    "category": "Database",
+    "severity": "critical",
+    "incident": "Failed to connect to database: authentication failed",
+    "prompt": "Classify the following IT incident:\n\nIncident: Failed to connect to database: authentication failed\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: critical\nRecommended Action: Investigate database systems, check logs for query, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Interface eth1 is down\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: medium\nRecommended Action: Investigate network systems, check logs for connection, and escalate if necessary.",
+    "category": "Network",
+    "severity": "medium",
+    "incident": "Interface eth1 is down",
+    "prompt": "Classify the following IT incident:\n\nIncident: Interface eth1 is down\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: medium\nRecommended Action: Investigate network systems, check logs for connection, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: BGP session down with peer 121.196.10.16\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: high\nRecommended Action: Investigate network systems, check logs for packet loss, and escalate if necessary.",
+    "category": "Network",
+    "severity": "high",
+    "incident": "BGP session down with peer 121.196.10.16",
+    "prompt": "Classify the following IT incident:\n\nIncident: BGP session down with peer 121.196.10.16\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: high\nRecommended Action: Investigate network systems, check logs for packet loss, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Connection timeout to 134.80.135.27\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: critical\nRecommended Action: Investigate network systems, check logs for packet loss, and escalate if necessary.",
+    "category": "Network",
+    "severity": "critical",
+    "incident": "Connection timeout to 134.80.135.27",
+    "prompt": "Classify the following IT incident:\n\nIncident: Connection timeout to 134.80.135.27\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: critical\nRecommended Action: Investigate network systems, check logs for packet loss, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: RAID array degraded: raid-4\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: medium\nRecommended Action: Investigate hardware systems, check logs for power, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "medium",
+    "incident": "RAID array degraded: raid-4",
+    "prompt": "Classify the following IT incident:\n\nIncident: RAID array degraded: raid-4\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: medium\nRecommended Action: Investigate hardware systems, check logs for power, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Interface eth0 is down\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: low\nRecommended Action: Investigate network systems, check logs for connection, and escalate if necessary.",
+    "category": "Network",
+    "severity": "low",
+    "incident": "Interface eth0 is down",
+    "prompt": "Classify the following IT incident:\n\nIncident: Interface eth0 is down\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: low\nRecommended Action: Investigate network systems, check logs for connection, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Performance bottleneck in cache\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: critical\nRecommended Action: Investigate performance systems, check logs for slow, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "critical",
+    "incident": "Performance bottleneck in cache",
+    "prompt": "Classify the following IT incident:\n\nIncident: Performance bottleneck in cache\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: critical\nRecommended Action: Investigate performance systems, check logs for slow, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: BGP session down with peer 43.163.163.220\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: low\nRecommended Action: Investigate network systems, check logs for connection, and escalate if necessary.",
+    "category": "Network",
+    "severity": "low",
+    "incident": "BGP session down with peer 43.163.163.220",
+    "prompt": "Classify the following IT incident:\n\nIncident: BGP session down with peer 43.163.163.220\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: low\nRecommended Action: Investigate network systems, check logs for connection, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Power supply redundancy lost\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: critical\nRecommended Action: Investigate hardware systems, check logs for disk, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "critical",
+    "incident": "Power supply redundancy lost",
+    "prompt": "Classify the following IT incident:\n\nIncident: Power supply redundancy lost\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: critical\nRecommended Action: Investigate hardware systems, check logs for disk, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Service api-gateway not responding\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: low\nRecommended Action: Investigate application systems, check logs for thread, and escalate if necessary.",
+    "category": "Application",
+    "severity": "low",
+    "incident": "Service api-gateway not responding",
+    "prompt": "Classify the following IT incident:\n\nIncident: Service api-gateway not responding\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: low\nRecommended Action: Investigate application systems, check logs for thread, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Fan speed critical on server-5\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: critical\nRecommended Action: Investigate hardware systems, check logs for fan, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "critical",
+    "incident": "Fan speed critical on server-5",
+    "prompt": "Classify the following IT incident:\n\nIncident: Fan speed critical on server-5\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: critical\nRecommended Action: Investigate hardware systems, check logs for fan, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: API latency exceeds SLA: 3614ms\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: critical\nRecommended Action: Investigate performance systems, check logs for bottleneck, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "critical",
+    "incident": "API latency exceeds SLA: 3614ms",
+    "prompt": "Classify the following IT incident:\n\nIncident: API latency exceeds SLA: 3614ms\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: critical\nRecommended Action: Investigate performance systems, check logs for bottleneck, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Potential intrusion detected: port scan\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: high\nRecommended Action: Investigate security systems, check logs for authentication, and escalate if necessary.",
+    "category": "Security",
+    "severity": "high",
+    "incident": "Potential intrusion detected: port scan",
+    "prompt": "Classify the following IT incident:\n\nIncident: Potential intrusion detected: port scan\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: high\nRecommended Action: Investigate security systems, check logs for authentication, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Connection timeout to 191.25.184.104\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: low\nRecommended Action: Investigate network systems, check logs for port, and escalate if necessary.",
+    "category": "Network",
+    "severity": "low",
+    "incident": "Connection timeout to 191.25.184.104",
+    "prompt": "Classify the following IT incident:\n\nIncident: Connection timeout to 191.25.184.104\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: low\nRecommended Action: Investigate network systems, check logs for port, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Multiple failed login attempts: 45\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: medium\nRecommended Action: Investigate security systems, check logs for intrusion, and escalate if necessary.",
+    "category": "Security",
+    "severity": "medium",
+    "incident": "Multiple failed login attempts: 45",
+    "prompt": "Classify the following IT incident:\n\nIncident: Multiple failed login attempts: 45\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: medium\nRecommended Action: Investigate security systems, check logs for intrusion, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Request queue backlog: 44 requests\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: critical\nRecommended Action: Investigate performance systems, check logs for degradation, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "critical",
+    "incident": "Request queue backlog: 44 requests",
+    "prompt": "Classify the following IT incident:\n\nIncident: Request queue backlog: 44 requests\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: critical\nRecommended Action: Investigate performance systems, check logs for degradation, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Security scan detected vulnerability: CVE-2023-5665\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: medium\nRecommended Action: Investigate security systems, check logs for SSL, and escalate if necessary.",
+    "category": "Security",
+    "severity": "medium",
+    "incident": "Security scan detected vulnerability: CVE-2023-5665",
+    "prompt": "Classify the following IT incident:\n\nIncident: Security scan detected vulnerability: CVE-2023-5665\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: medium\nRecommended Action: Investigate security systems, check logs for SSL, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: API latency exceeds SLA: 1155ms\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: high\nRecommended Action: Investigate performance systems, check logs for bottleneck, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "high",
+    "incident": "API latency exceeds SLA: 1155ms",
+    "prompt": "Classify the following IT incident:\n\nIncident: API latency exceeds SLA: 1155ms\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: high\nRecommended Action: Investigate performance systems, check logs for bottleneck, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Firewall blocking port 443\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: medium\nRecommended Action: Investigate network systems, check logs for timeout, and escalate if necessary.",
+    "category": "Network",
+    "severity": "medium",
+    "incident": "Firewall blocking port 443",
+    "prompt": "Classify the following IT incident:\n\nIncident: Firewall blocking port 443\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: medium\nRecommended Action: Investigate network systems, check logs for timeout, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Hardware watchdog timeout\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: critical\nRecommended Action: Investigate hardware systems, check logs for temperature, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "critical",
+    "incident": "Hardware watchdog timeout",
+    "prompt": "Classify the following IT incident:\n\nIncident: Hardware watchdog timeout\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: critical\nRecommended Action: Investigate hardware systems, check logs for temperature, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Hardware watchdog timeout\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: low\nRecommended Action: Investigate hardware systems, check logs for power, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "low",
+    "incident": "Hardware watchdog timeout",
+    "prompt": "Classify the following IT incident:\n\nIncident: Hardware watchdog timeout\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: low\nRecommended Action: Investigate hardware systems, check logs for power, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: DNS resolution failed for www.example.com\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: critical\nRecommended Action: Investigate network systems, check logs for timeout, and escalate if necessary.",
+    "category": "Network",
+    "severity": "critical",
+    "incident": "DNS resolution failed for www.example.com",
+    "prompt": "Classify the following IT incident:\n\nIncident: DNS resolution failed for www.example.com\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: critical\nRecommended Action: Investigate network systems, check logs for timeout, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Interface eth2 is down\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: low\nRecommended Action: Investigate network systems, check logs for port, and escalate if necessary.",
+    "category": "Network",
+    "severity": "low",
+    "incident": "Interface eth2 is down",
+    "prompt": "Classify the following IT incident:\n\nIncident: Interface eth2 is down\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: low\nRecommended Action: Investigate network systems, check logs for port, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Suspicious activity from 44.11.177.91\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: medium\nRecommended Action: Investigate security systems, check logs for authentication, and escalate if necessary.",
+    "category": "Security",
+    "severity": "medium",
+    "incident": "Suspicious activity from 44.11.177.91",
+    "prompt": "Classify the following IT incident:\n\nIncident: Suspicious activity from 44.11.177.91\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: medium\nRecommended Action: Investigate security systems, check logs for authentication, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: NullPointerException in UserService\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: high\nRecommended Action: Investigate application systems, check logs for crash, and escalate if necessary.",
+    "category": "Application",
+    "severity": "high",
+    "incident": "NullPointerException in UserService",
+    "prompt": "Classify the following IT incident:\n\nIncident: NullPointerException in UserService\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: high\nRecommended Action: Investigate application systems, check logs for crash, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Failed to connect to database: authentication failed\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: medium\nRecommended Action: Investigate database systems, check logs for deadlock, and escalate if necessary.",
+    "category": "Database",
+    "severity": "medium",
+    "incident": "Failed to connect to database: authentication failed",
+    "prompt": "Classify the following IT incident:\n\nIncident: Failed to connect to database: authentication failed\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: medium\nRecommended Action: Investigate database systems, check logs for deadlock, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Application crashed: unexpected error\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: low\nRecommended Action: Investigate application systems, check logs for thread, and escalate if necessary.",
+    "category": "Application",
+    "severity": "low",
+    "incident": "Application crashed: unexpected error",
+    "prompt": "Classify the following IT incident:\n\nIncident: Application crashed: unexpected error\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: low\nRecommended Action: Investigate application systems, check logs for thread, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Slow query detected: 9322ms\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: medium\nRecommended Action: Investigate database systems, check logs for SQL, and escalate if necessary.",
+    "category": "Database",
+    "severity": "medium",
+    "incident": "Slow query detected: 9322ms",
+    "prompt": "Classify the following IT incident:\n\nIncident: Slow query detected: 9322ms\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: medium\nRecommended Action: Investigate database systems, check logs for SQL, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Failed to connect to database: authentication failed\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: low\nRecommended Action: Investigate database systems, check logs for transaction, and escalate if necessary.",
+    "category": "Database",
+    "severity": "low",
+    "incident": "Failed to connect to database: authentication failed",
+    "prompt": "Classify the following IT incident:\n\nIncident: Failed to connect to database: authentication failed\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: low\nRecommended Action: Investigate database systems, check logs for transaction, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: High CPU usage: 80%\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: medium\nRecommended Action: Investigate application systems, check logs for memory, and escalate if necessary.",
+    "category": "Application",
+    "severity": "medium",
+    "incident": "High CPU usage: 80%",
+    "prompt": "Classify the following IT incident:\n\nIncident: High CPU usage: 80%\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: medium\nRecommended Action: Investigate application systems, check logs for memory, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: API latency exceeds SLA: 1720ms\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: medium\nRecommended Action: Investigate performance systems, check logs for latency, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "medium",
+    "incident": "API latency exceeds SLA: 1720ms",
+    "prompt": "Classify the following IT incident:\n\nIncident: API latency exceeds SLA: 1720ms\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: medium\nRecommended Action: Investigate performance systems, check logs for latency, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Performance bottleneck in API\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: critical\nRecommended Action: Investigate performance systems, check logs for slow, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "critical",
+    "incident": "Performance bottleneck in API",
+    "prompt": "Classify the following IT incident:\n\nIncident: Performance bottleneck in API\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: critical\nRecommended Action: Investigate performance systems, check logs for slow, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Request queue backlog: 28 requests\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: low\nRecommended Action: Investigate performance systems, check logs for bottleneck, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "low",
+    "incident": "Request queue backlog: 28 requests",
+    "prompt": "Classify the following IT incident:\n\nIncident: Request queue backlog: 28 requests\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: low\nRecommended Action: Investigate performance systems, check logs for bottleneck, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Transaction rollback: unexpected error\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: low\nRecommended Action: Investigate database systems, check logs for transaction, and escalate if necessary.",
+    "category": "Database",
+    "severity": "low",
+    "incident": "Transaction rollback: unexpected error",
+    "prompt": "Classify the following IT incident:\n\nIncident: Transaction rollback: unexpected error\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: low\nRecommended Action: Investigate database systems, check logs for transaction, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: High temperature alert: 90°C\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Hardware\nSeverity: low\nRecommended Action: Investigate hardware systems, check logs for fan, and escalate if necessary.",
+    "category": "Hardware",
+    "severity": "low",
+    "incident": "High temperature alert: 90°C",
+    "prompt": "Classify the following IT incident:\n\nIncident: High temperature alert: 90°C\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Hardware\nSeverity: low\nRecommended Action: Investigate hardware systems, check logs for fan, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: SSL certificate expired for api.example.com\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: critical\nRecommended Action: Investigate security systems, check logs for unauthorized, and escalate if necessary.",
+    "category": "Security",
+    "severity": "critical",
+    "incident": "SSL certificate expired for api.example.com",
+    "prompt": "Classify the following IT incident:\n\nIncident: SSL certificate expired for api.example.com\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: critical\nRecommended Action: Investigate security systems, check logs for unauthorized, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Cache hit rate below threshold: 92%\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Performance\nSeverity: high\nRecommended Action: Investigate performance systems, check logs for bottleneck, and escalate if necessary.",
+    "category": "Performance",
+    "severity": "high",
+    "incident": "Cache hit rate below threshold: 92%",
+    "prompt": "Classify the following IT incident:\n\nIncident: Cache hit rate below threshold: 92%\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Performance\nSeverity: high\nRecommended Action: Investigate performance systems, check logs for bottleneck, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Unauthorized access attempt from 23.186.61.117\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: low\nRecommended Action: Investigate security systems, check logs for unauthorized, and escalate if necessary.",
+    "category": "Security",
+    "severity": "low",
+    "incident": "Unauthorized access attempt from 23.186.61.117",
+    "prompt": "Classify the following IT incident:\n\nIncident: Unauthorized access attempt from 23.186.61.117\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: low\nRecommended Action: Investigate security systems, check logs for unauthorized, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Replication lag exceeds 223s\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: low\nRecommended Action: Investigate database systems, check logs for deadlock, and escalate if necessary.",
+    "category": "Database",
+    "severity": "low",
+    "incident": "Replication lag exceeds 223s",
+    "prompt": "Classify the following IT incident:\n\nIncident: Replication lag exceeds 223s\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: low\nRecommended Action: Investigate database systems, check logs for deadlock, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Application crashed: timeout\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: medium\nRecommended Action: Investigate application systems, check logs for memory, and escalate if necessary.",
+    "category": "Application",
+    "severity": "medium",
+    "incident": "Application crashed: timeout",
+    "prompt": "Classify the following IT incident:\n\nIncident: Application crashed: timeout\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: medium\nRecommended Action: Investigate application systems, check logs for memory, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: BGP session down with peer 254.163.68.197\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: critical\nRecommended Action: Investigate network systems, check logs for port, and escalate if necessary.",
+    "category": "Network",
+    "severity": "critical",
+    "incident": "BGP session down with peer 254.163.68.197",
+    "prompt": "Classify the following IT incident:\n\nIncident: BGP session down with peer 254.163.68.197\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: critical\nRecommended Action: Investigate network systems, check logs for port, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Service cache not responding\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: medium\nRecommended Action: Investigate application systems, check logs for error, and escalate if necessary.",
+    "category": "Application",
+    "severity": "medium",
+    "incident": "Service cache not responding",
+    "prompt": "Classify the following IT incident:\n\nIncident: Service cache not responding\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: medium\nRecommended Action: Investigate application systems, check logs for error, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: High CPU usage: 80%\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Application\nSeverity: high\nRecommended Action: Investigate application systems, check logs for error, and escalate if necessary.",
+    "category": "Application",
+    "severity": "high",
+    "incident": "High CPU usage: 80%",
+    "prompt": "Classify the following IT incident:\n\nIncident: High CPU usage: 80%\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Application\nSeverity: high\nRecommended Action: Investigate application systems, check logs for error, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: DNS resolution failed for db.example.com\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Network\nSeverity: critical\nRecommended Action: Investigate network systems, check logs for DNS, and escalate if necessary.",
+    "category": "Network",
+    "severity": "critical",
+    "incident": "DNS resolution failed for db.example.com",
+    "prompt": "Classify the following IT incident:\n\nIncident: DNS resolution failed for db.example.com\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Network\nSeverity: critical\nRecommended Action: Investigate network systems, check logs for DNS, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Suspicious activity from 7.80.4.56\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: high\nRecommended Action: Investigate security systems, check logs for unauthorized, and escalate if necessary.",
+    "category": "Security",
+    "severity": "high",
+    "incident": "Suspicious activity from 7.80.4.56",
+    "prompt": "Classify the following IT incident:\n\nIncident: Suspicious activity from 7.80.4.56\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: high\nRecommended Action: Investigate security systems, check logs for unauthorized, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: SSL certificate expired for www.example.com\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: high\nRecommended Action: Investigate security systems, check logs for certificate, and escalate if necessary.",
+    "category": "Security",
+    "severity": "high",
+    "incident": "SSL certificate expired for www.example.com",
+    "prompt": "Classify the following IT incident:\n\nIncident: SSL certificate expired for www.example.com\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: high\nRecommended Action: Investigate security systems, check logs for certificate, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Deadlock detected on table transactions\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Database\nSeverity: high\nRecommended Action: Investigate database systems, check logs for connection pool, and escalate if necessary.",
+    "category": "Database",
+    "severity": "high",
+    "incident": "Deadlock detected on table transactions",
+    "prompt": "Classify the following IT incident:\n\nIncident: Deadlock detected on table transactions\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Database\nSeverity: high\nRecommended Action: Investigate database systems, check logs for connection pool, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Security scan detected vulnerability: CVE-2020-9383\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: medium\nRecommended Action: Investigate security systems, check logs for unauthorized, and escalate if necessary.",
+    "category": "Security",
+    "severity": "medium",
+    "incident": "Security scan detected vulnerability: CVE-2020-9383",
+    "prompt": "Classify the following IT incident:\n\nIncident: Security scan detected vulnerability: CVE-2020-9383\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: medium\nRecommended Action: Investigate security systems, check logs for unauthorized, and escalate if necessary."
+  },
+  {
+    "text": "Classify the following IT incident:\n\nIncident: Unauthorized access attempt from 115.95.107.64\n\nProvide classification with category, severity, and recommended action.\n\nCategory: Security\nSeverity: high\nRecommended Action: Investigate security systems, check logs for intrusion, and escalate if necessary.",
+    "category": "Security",
+    "severity": "high",
+    "incident": "Unauthorized access attempt from 115.95.107.64",
+    "prompt": "Classify the following IT incident:\n\nIncident: Unauthorized access attempt from 115.95.107.64\n\nProvide classification with category, severity, and recommended action.",
+    "response": "Category: Security\nSeverity: high\nRecommended Action: Investigate security systems, check logs for intrusion, and escalate if necessary."
+  }
+]

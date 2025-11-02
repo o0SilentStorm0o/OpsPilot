@@ -1,0 +1,359 @@
+prompt,response,category
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Transaction timeout errors occur when operations exceed configured limits. Optimize long-running queries, batch operations appropriately, or increase timeout settings.
+- Database backup failures risk data loss. Monitor backup job status, verify backup integrity, ensure sufficient storage space, and test restore procedures.
+
+Message: Classify this incident: PostgreSQL primary server crashed with out-of-memory error, replica promoted to primary
+Category:","**Category:** Database
+**Severity:** critical
+
+This is a database infrastructure failure requiring immediate attention. The primary database server experienced OOM, but automatic failover to replica occurred.",Database
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Firewall blocking legitimate traffic causes connectivity issues. Review firewall rules, check logs for dropped packets, verify security group configurations.
+- Load balancer health check failures remove backends from rotation. Ensure health check endpoints are responsive, adjust timeout/interval settings appropriately.
+- SSL/TLS handshake failures stem from certificate issues, protocol mismatches, or cipher suite incompatibility. Verify certificates and update SSL configurations.
+
+Message: Classify this incident: Network packet loss detected between datacenter-A and datacenter-B. Latency increased from 2ms to 150ms. BGP routes unstable.
+Category:","**Category:** Network
+**Severity:** high
+
+Network routing issue affecting inter-datacenter communication. BGP instability indicates possible route flapping or infrastructure failure.",Network
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Synchronous processing blocks threads unnecessarily. Implement async/await patterns, use message queues for background tasks.
+- Database connection latency >50ms impacts query performance. Use connection pooling, reduce connection setup overhead, optimize network path.
+
+Message: Classify this incident: Memory usage at 94% on app-server-05. Swap file active. GC taking 8 seconds per cycle.
+Category:","**Category:** Performance
+**Severity:** high
+
+Performance degradation due to memory exhaustion. Heavy garbage collection indicates heap pressure, not application logic error.",Performance
+"Classify this IT incident:
+
+Relevant Knowledge:
+- SSL certificate expiration causes trust errors. Implement automated certificate renewal, monitor expiration dates, and maintain certificate inventory.
+- XSS attacks inject malicious scripts into web pages. Sanitize user inputs, encode outputs, implement Content Security Policy headers.
+
+Message: Classify this incident: Multiple failed SSH login attempts from IP 198.51.100.42. 500 attempts in last 5 minutes. Targeting root account.
+Category:","**Category:** Security
+**Severity:** critical
+
+Security incident - brute force attack on SSH. Requires immediate blocking and fail2ban configuration.",Security
+"Classify this IT incident:
+
+Relevant Knowledge:
+- OAuth2 authentication failures stem from invalid tokens, expired credentials, misconfigured redirect URIs, or clock skew between services. Verify token lifetimes and issuer configurations.
+- HTTP 500 errors indicate server-side application failures. Common causes: uncaught exceptions, null pointer errors, configuration issues, missing dependencies, or resource exhaustion within application code.
+- Message queue consumer lag indicates slow processing, insufficient consumers, or large message backlogs. Scale consumers horizontally or optimize processing logic.
+
+Message: Classify this incident: Application throwing NullPointerException in UserService.getUserProfile(). Stack trace shows null userId at line 142. Error rate: 45 errors/min.
+Category:","**Category:** Application
+**Severity:** high
+
+**This is APPLICATION issue (not Network/Performance):**
+- NullPointerException = application code bug
+- Business logic error in UserService
+- Not caused by infrastructure or network
+- Application-level null handling missing",Application
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Docker image pull failures prevent deployments. Check registry connectivity, verify credentials, ensure sufficient disk space.
+- Ingress controller errors block external traffic. Review ingress rules, verify TLS certificates, check backend service health.
+
+Message: Classify this incident: Kubernetes pod evicted: api-gateway-7d9f8b5c4-x9k2p terminated with OOMKilled. Memory limit 512Mi exceeded.
+Category:","**Category:** Infrastructure
+**Severity:** high
+
+Infrastructure-level resource management. K8s evicting pod due to memory limits. Infrastructure configuration issue, not application bug.",Infrastructure
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Connection pool exhaustion happens when all connections are in use. Increase pool size, fix connection leaks, or optimize query performance to release connections faster.
+- Index fragmentation degrades query performance over time. Rebuild or reorganize indexes regularly, especially on tables with heavy write activity.
+
+Message: Classify this incident: SELECT query on orders table taking 45 seconds normally <1s. Query plan shows sequential scan. 5M rows scanned.
+Category:","**Category:** Database
+**Severity:** high
+
+Database performance issue caused by missing index. Query optimization needed at database layer.",Database
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Disk I/O bottlenecks slow data access. Use faster storage (SSD/NVMe), implement caching layers, optimize read/write patterns.
+- Cold start latency in serverless affects first requests. Use provisioned concurrency, optimize initialization code, or maintain warm instances.
+- Synchronous processing blocks threads unnecessarily. Implement async/await patterns, use message queues for background tasks.
+
+Message: Classify this incident: Redis cache hit rate dropped to 12%. API response times increased from 100ms to 2.5s. High load on PostgreSQL.
+Category:","**Category:** Performance
+**Severity:** high
+
+Performance issue from cache miss storm. System performance problem, not application logic error.",Performance
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Service mesh configuration errors break inter-service communication. Validate mesh policies, check mTLS settings, review routing rules.
+- Out-of-memory (OOM) kills terminate processes. Increase memory limits, fix memory leaks, optimize memory usage patterns.
+
+Message: Classify this incident: Load balancer health check failing /health endpoint on app-server-03 returning 503. Service marked unhealthy.
+Category:","**Category:** Infrastructure
+**Severity:** medium
+
+Infrastructure health detection working correctly. Load balancer removing unhealthy instance from pool.",Infrastructure
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Session management issues occur when user sessions expire prematurely, fail to persist, or become corrupted. Check session timeout configs, Redis/memcached health, sticky sessions in load balancers.
+- HTTP 500 errors indicate server-side application failures. Common causes: uncaught exceptions, null pointer errors, configuration issues, missing dependencies, or resource exhaustion within application code.
+- OAuth2 authentication failures stem from invalid tokens, expired credentials, misconfigured redirect URIs, or clock skew between services. Verify token lifetimes and issuer configurations.
+
+Message: Classify this incident: Application HTTP 500 errors spiking 1500 errors in last 5 minutes. All from /api/checkout. Logs show org.springframework.dao.DataIntegrityViolationException foreign key constraint.
+Category:","**Category:** Application
+**Severity:** critical
+
+**This is APPLICATION issue (NOT Database/Performance):**
+- HTTP 500 = application server error
+- DataIntegrityViolationException = application sending invalid data
+- Application validation logic missing
+- Database working correctly by rejecting bad data
+- Root cause: Application code bug in checkout logic",Application
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Application deadlocks occur when threads wait indefinitely for resources. Look for circular dependencies in locking mechanisms, database connection pools, or message queue consumers.
+- Null pointer exceptions reveal missing validation, improper error handling, or race conditions. Add defensive checks and comprehensive logging around object access.
+- Session management issues occur when user sessions expire prematurely, fail to persist, or become corrupted. Check session timeout configs, Redis/memcached health, sticky sessions in load balancers.
+
+Message: Classify this incident: Session timeout errors - users logged out after 2 minutes. SessionExpiredException in logs. Redis responding normally. Config shows session.timeout=2m.
+Category:","**Category:** Application
+**Severity:** high
+
+**This is APPLICATION configuration issue (NOT Performance):**
+- Session management = application-level concern
+- Timeout value = application configuration
+- Redis infrastructure working fine
+- Application config set incorrectly (2m too short)
+- Not a performance/latency problem",Application
+"Classify this IT incident:
+
+Relevant Knowledge:
+- HTTP 500 errors indicate server-side application failures. Common causes: uncaught exceptions, null pointer errors, configuration issues, missing dependencies, or resource exhaustion within application code.
+- Memory leaks in applications manifest as gradual heap growth, eventually causing OOM errors. Use heap dumps to identify retained objects and fix resource cleanup.
+- Null pointer exceptions reveal missing validation, improper error handling, or race conditions. Add defensive checks and comprehensive logging around object access.
+
+Message: Classify this incident: API rate limiting triggered Client 203.0.113.45 receiving 429 Too Many Requests. Rate limiter 1500 req/min limit 1000.
+Category:","**Category:** Application
+**Severity:** medium
+
+**This is APPLICATION issue (NOT Network):**
+- 429 status = application-defined HTTP response
+- Rate limiting = application business logic
+- Application enforcing traffic policy
+- Not network connectivity issue
+- Application-level traffic management",Application
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Circuit breaker trips protect services from cascading failures. When tripped frequently, investigate downstream service health and timeout configurations.
+- Memory leaks in applications manifest as gradual heap growth, eventually causing OOM errors. Use heap dumps to identify retained objects and fix resource cleanup.
+- Session management issues occur when user sessions expire prematurely, fail to persist, or become corrupted. Check session timeout configs, Redis/memcached health, sticky sessions in load balancers.
+
+Message: Classify this incident: WebSocket connections dropping every 60 seconds. Client receiving close frame 1006. Proxy timeout suspected.
+Category:","**Category:** Application
+**Severity:** high
+
+**This is APPLICATION issue (NOT pure Network):**
+- WebSocket = application-layer protocol
+- Application should implement ping/pong heartbeat
+- Connection management = application responsibility
+- Not pure TCP network failure
+- Application needs to handle keep-alive",Application
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Null pointer exceptions reveal missing validation, improper error handling, or race conditions. Add defensive checks and comprehensive logging around object access.
+- Message queue consumer lag indicates slow processing, insufficient consumers, or large message backlogs. Scale consumers horizontally or optimize processing logic.
+
+Message: Classify this incident: Email delivery failing SMTP connection to mail.example.com:587 refused. Telnet from app server fails.
+Category:","**Category:** Application
+**Severity:** high
+
+**This is APPLICATION external dependency (NOT Network):**
+- Application trying to send emails
+- External SMTP service = application integration
+- Application-level functionality failing
+- Not internal network infrastructure
+- Application should handle service unavailability",Application
+"Classify this IT incident:
+
+Relevant Knowledge:
+- OAuth2 authentication failures stem from invalid tokens, expired credentials, misconfigured redirect URIs, or clock skew between services. Verify token lifetimes and issuer configurations.
+- Application deadlocks occur when threads wait indefinitely for resources. Look for circular dependencies in locking mechanisms, database connection pools, or message queue consumers.
+
+Message: Classify this incident: Scheduled batch job failed data-sync-job threw UnhandledRejectionError. Job marked failed in scheduler.
+Category:","**Category:** Application
+**Severity:** high
+
+**This is APPLICATION code error (NOT Infrastructure):**
+- UnhandledRejectionError = application code bug
+- Missing error handling in application logic
+- Scheduler infrastructure working correctly
+- Application background job logic broken
+- Application needs try-catch blocks",Application
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Message queue consumer lag indicates slow processing, insufficient consumers, or large message backlogs. Scale consumers horizontally or optimize processing logic.
+- HTTP 500 errors indicate server-side application failures. Common causes: uncaught exceptions, null pointer errors, configuration issues, missing dependencies, or resource exhaustion within application code.
+
+Message: Classify this incident: File upload failing for files >10MB timeout after 30 seconds. Small files work fine.
+Category:","**Category:** Application
+**Severity:** medium
+
+**This is APPLICATION design issue:**
+- File upload = application functionality
+- Application should implement chunked upload
+- Configuration issue but application responsibility
+- Application defines upload requirements
+- Not pure infrastructure/network problem",Application
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Session management issues occur when user sessions expire prematurely, fail to persist, or become corrupted. Check session timeout configs, Redis/memcached health, sticky sessions in load balancers.
+- WebSocket connection drops happen due to proxy timeouts, network instability, or server resource limits. Ensure proper keep-alive settings and error handling in WebSocket code.
+- Application deadlocks occur when threads wait indefinitely for resources. Look for circular dependencies in locking mechanisms, database connection pools, or message queue consumers.
+
+Message: Classify this incident: CORS error in browser Access-Control-Allow-Origin header missing. Frontend app.example.com accessing api.example.com. OPTIONS returns 403.
+Category:","**Category:** Application
+**Severity:** high
+
+**This is APPLICATION security configuration:**
+- CORS = application-level security policy
+- Application backend needs CORS middleware
+- Application defines allowed origins
+- Not network or firewall issue
+- Application security configuration missing",Application
+"Classify this IT incident:
+
+Relevant Knowledge:
+- API response time degradation signals inefficient queries, missing indexes, N+1 problems, or external service latency. Profile code paths and database queries.
+- WebSocket connection drops happen due to proxy timeouts, network instability, or server resource limits. Ensure proper keep-alive settings and error handling in WebSocket code.
+
+Message: Classify this incident: JSON parsing error Unexpected token at position 245. Client sending malformed JSON. Application returning 400.
+Category:","**Category:** Application
+**Severity:** medium
+
+**This is APPLICATION input validation:**
+- JSON parsing = application data processing
+- Application correctly rejecting invalid input
+- Application-level protocol handling
+- Not network corruption
+- Application needs better error messages",Application
+"Classify this IT incident:
+
+Relevant Knowledge:
+- OAuth2 authentication failures stem from invalid tokens, expired credentials, misconfigured redirect URIs, or clock skew between services. Verify token lifetimes and issuer configurations.
+- Message queue consumer lag indicates slow processing, insufficient consumers, or large message backlogs. Scale consumers horizontally or optimize processing logic.
+- WebSocket connection drops happen due to proxy timeouts, network instability, or server resource limits. Ensure proper keep-alive settings and error handling in WebSocket code.
+
+Message: Classify this incident: Database migration failed Flyway V1.5__add_user_email_column.sql syntax error. Application startup aborted.
+Category:","**Category:** Application
+**Severity:** critical
+
+**This is APPLICATION deployment issue:**
+- Database migration = application schema management
+- Flyway = application-level tool
+- SQL syntax error in migration script
+- Application code managing schema evolution
+- Application deployment process failing",Application
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Circuit breaker trips protect services from cascading failures. When tripped frequently, investigate downstream service health and timeout configurations.
+- WebSocket connection drops happen due to proxy timeouts, network instability, or server resource limits. Ensure proper keep-alive settings and error handling in WebSocket code.
+
+Message: Classify this incident: Memory leak detected heap growing 100MB/hour. Full GC not reclaiming. Thread dump shows 5000+ WebSocket sessions.
+Category:","**Category:** Application
+**Severity:** critical
+
+**This is APPLICATION bug (NOT Performance/Infrastructure):**
+- Memory leak = application code not releasing resources
+- WebSocket sessions accumulating = application bug
+- Application session cleanup missing
+- Not infrastructure memory pressure
+- Application code needs @OnClose handler",Application
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Disk space utilization >90% risks service outages. Implement log rotation, clean temporary files, expand storage capacity.
+- Ingress controller errors block external traffic. Review ingress rules, verify TLS certificates, check backend service health.
+- Docker image pull failures prevent deployments. Check registry connectivity, verify credentials, ensure sufficient disk space.
+
+Message: Classify this incident: Container build failing Docker build npm install timeout 10 minutes. Network from build agent OK.
+Category:","**Category:** Infrastructure
+**Severity:** high
+
+CI/CD infrastructure issue. Build environment problem, not application code. Infrastructure automation maintenance needed.",Infrastructure
+"Classify this IT incident:
+
+Relevant Knowledge:
+- SQL injection vulnerabilities allow attackers to execute arbitrary SQL. Use parameterized queries, validate inputs, and implement web application firewalls.
+- Privilege escalation exploits elevation vulnerabilities. Apply principle of least privilege, audit permission assignments, patch known CVEs promptly.
+
+Message: Classify this incident: SSL certificate expired on load balancer HTTPS returning ERR_CERT_DATE_INVALID. Certificate expiry yesterday.
+Category:","**Category:** Security
+**Severity:** critical
+
+Security operations failure. Certificate lifecycle management issue. Security team responsible for renewal.",Security
+"Classify this IT incident:
+
+Relevant Knowledge:
+- MTU mismatch causes fragmentation and performance issues. Ensure consistent MTU across network path, typically 1500 bytes for Ethernet or 9000 for jumbo frames.
+- Firewall blocking legitimate traffic causes connectivity issues. Review firewall rules, check logs for dropped packets, verify security group configurations.
+
+Message: Classify this incident: BGP session down with ISP packet loss 100%
+Category:","**Category:** Network
+**Severity:** critical
+
+Network infrastructure connectivity failure. ISP routing issue.",Network
+"Classify this IT incident:
+
+Relevant Knowledge:
+- High replication lag means replica databases fall behind master. This causes stale reads and can impact failover. Check network bandwidth, disk I/O, and replication load.
+- Foreign key constraint violations indicate data integrity issues. Validate data before insertion, handle cascading deletes properly, and maintain referential integrity.
+- Database backup failures risk data loss. Monitor backup job status, verify backup integrity, ensure sufficient storage space, and test restore procedures.
+
+Message: Classify this incident: High CPU on database 95% utilization. Long-running queries detected.
+Category:","**Category:** Database
+**Severity:** high
+
+Database performance issue. Query optimization or resource scaling needed.",Database
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Memory pressure with frequent GC pauses degrades application responsiveness. Tune heap sizes, fix memory leaks, optimize object allocation patterns.
+- Large payload sizes increase transfer time. Implement compression, paginate results, use efficient serialization formats like Protocol Buffers.
+- Cache miss ratio >30% reduces performance benefits. Tune cache sizes, optimize cache keys, review TTL settings and eviction policies.
+
+Message: Classify this incident: CDN cache miss rate 60% origin overloaded.
+Category:","**Category:** Performance
+**Severity:** high
+
+Performance degradation from cache inefficiency. System-level performance issue.",Performance
+"Classify this IT incident:
+
+Relevant Knowledge:
+- Ingress controller errors block external traffic. Review ingress rules, verify TLS certificates, check backend service health.
+- Volume mount failures prevent pod startup. Verify PV/PVC bindings, check storage class configurations, ensure node storage access.
+- Service mesh configuration errors break inter-service communication. Validate mesh policies, check mTLS settings, review routing rules.
+
+Message: Classify this incident: Kafka consumer lag 50000 messages behind. Stream processing delayed.
+Category:","**Category:** Infrastructure
+**Severity:** high
+
+Infrastructure streaming platform issue. Consumer scaling or partition rebalancing needed.",Infrastructure

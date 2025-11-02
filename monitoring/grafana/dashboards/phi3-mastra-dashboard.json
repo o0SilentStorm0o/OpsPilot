@@ -1,0 +1,319 @@
+{
+  "uid": "phi3-mastra",
+  "title": "OpsPilot - Phi-3 + Mastra AI Monitoring",
+  "tags": ["opspilot", "ai", "phi3", "mastra"],
+  "timezone": "browser",
+  "schemaVersion": 36,
+  "version": 1,
+  "refresh": "10s",
+  "panels": [
+      {
+        "title": "🎯 Auto-Resolve vs Human-Escalate Rate",
+        "type": "piechart",
+        "gridPos": { "x": 0, "y": 0, "w": 8, "h": 8 },
+        "targets": [
+          {
+            "expr": "sum by (decision) (rate(incident_decisions_total[5m]))",
+            "legendFormat": "{{decision}}",
+            "refId": "A"
+          }
+        ]
+      },
+      {
+        "title": "⚡ Phi-3 Inference Latency (p50, p95, p99)",
+        "type": "graph",
+        "gridPos": { "x": 8, "y": 0, "w": 8, "h": 8 },
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.50, rate(phi3_inference_latency_seconds_bucket[5m]))",
+            "legendFormat": "p50",
+            "refId": "A"
+          },
+          {
+            "expr": "histogram_quantile(0.95, rate(phi3_inference_latency_seconds_bucket[5m]))",
+            "legendFormat": "p95",
+            "refId": "B"
+          },
+          {
+            "expr": "histogram_quantile(0.99, rate(phi3_inference_latency_seconds_bucket[5m]))",
+            "legendFormat": "p99",
+            "refId": "C"
+          }
+        ],
+        "yaxes": [
+          {
+            "format": "s",
+            "label": "Latency"
+          }
+        ]
+      },
+      {
+        "title": "📊 Classification Confidence Distribution",
+        "type": "heatmap",
+        "gridPos": { "x": 16, "y": 0, "w": 8, "h": 8 },
+        "targets": [
+          {
+            "expr": "rate(phi3_classification_confidence_bucket[5m])",
+            "legendFormat": "{{le}}",
+            "refId": "A"
+          }
+        ]
+      },
+      {
+        "title": "🔍 Uncertainty Detector Scores",
+        "type": "graph",
+        "gridPos": { "x": 0, "y": 8, "w": 12, "h": 8 },
+        "targets": [
+          {
+            "expr": "phi3_uncertainty_detector_score{detector=\"mc_dropout\"}",
+            "legendFormat": "MC Dropout",
+            "refId": "A"
+          },
+          {
+            "expr": "phi3_uncertainty_detector_score{detector=\"margin\"}",
+            "legendFormat": "Margin",
+            "refId": "B"
+          },
+          {
+            "expr": "phi3_uncertainty_detector_score{detector=\"entropy\"}",
+            "legendFormat": "Entropy",
+            "refId": "C"
+          },
+          {
+            "expr": "phi3_uncertainty_detector_score{detector=\"energy\"}",
+            "legendFormat": "Energy",
+            "refId": "D"
+          },
+          {
+            "expr": "phi3_uncertainty_detector_score{detector=\"knn_distance\"}",
+            "legendFormat": "kNN Distance",
+            "refId": "E"
+          }
+        ]
+      },
+      {
+        "title": "🎫 Incident Categories Distribution",
+        "type": "piechart",
+        "gridPos": { "x": 12, "y": 8, "w": 6, "h": 8 },
+        "targets": [
+          {
+            "expr": "sum by (category) (rate(phi3_classifications_total[5m]))",
+            "legendFormat": "{{category}}",
+            "refId": "A"
+          }
+        ]
+      },
+      {
+        "title": "🚨 Severity Distribution",
+        "type": "piechart",
+        "gridPos": { "x": 18, "y": 8, "w": 6, "h": 8 },
+        "targets": [
+          {
+            "expr": "sum by (severity) (rate(phi3_classifications_total[5m]))",
+            "legendFormat": "{{severity}}",
+            "refId": "A"
+          }
+        ]
+      },
+      {
+        "title": "⏱️ Mastra Workflow Duration (p50, p95, p99)",
+        "type": "graph",
+        "gridPos": { "x": 0, "y": 16, "w": 12, "h": 8 },
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.50, rate(mastra_workflow_duration_seconds_bucket[5m]))",
+            "legendFormat": "p50 - {{decision}}",
+            "refId": "A"
+          },
+          {
+            "expr": "histogram_quantile(0.95, rate(mastra_workflow_duration_seconds_bucket[5m]))",
+            "legendFormat": "p95 - {{decision}}",
+            "refId": "B"
+          },
+          {
+            "expr": "histogram_quantile(0.99, rate(mastra_workflow_duration_seconds_bucket[5m]))",
+            "legendFormat": "p99 - {{decision}}",
+            "refId": "C"
+          }
+        ],
+        "yaxes": [
+          {
+            "format": "s",
+            "label": "Duration"
+          }
+        ]
+      },
+      {
+        "title": "💰 Total Cost Savings (vs GPT-4o)",
+        "type": "stat",
+        "gridPos": { "x": 12, "y": 16, "w": 6, "h": 4 },
+        "targets": [
+          {
+            "expr": "sum(rate(incidents_processed_total[1h])) * 0.0005 * 24 * 30",
+            "refId": "A"
+          }
+        ],
+        "options": {
+          "graphMode": "none",
+          "textMode": "value_and_name",
+          "colorMode": "background"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "currencyUSD",
+            "decimals": 2
+          }
+        }
+      },
+      {
+        "title": "⏰ SRE Time Freed (hours/day)",
+        "type": "stat",
+        "gridPos": { "x": 18, "y": 16, "w": 6, "h": 4 },
+        "targets": [
+          {
+            "expr": "sre_time_freed_hours_daily",
+            "refId": "A"
+          }
+        ],
+        "options": {
+          "graphMode": "area",
+          "textMode": "value_and_name",
+          "colorMode": "background"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "h",
+            "decimals": 1
+          }
+        }
+      },
+      {
+        "title": "📈 Incidents Processed/min",
+        "type": "graph",
+        "gridPos": { "x": 12, "y": 20, "w": 12, "h": 8 },
+        "targets": [
+          {
+            "expr": "sum(rate(incidents_processed_total[5m])) * 60",
+            "legendFormat": "Total incidents/min",
+            "refId": "A"
+          },
+          {
+            "expr": "sum by (category) (rate(incidents_processed_total[5m])) * 60",
+            "legendFormat": "{{category}}",
+            "refId": "B"
+          }
+        ]
+      },
+      {
+        "title": "🎯 Effective Accuracy (Phi-3 + HITL)",
+        "type": "gauge",
+        "gridPos": { "x": 0, "y": 24, "w": 6, "h": 6 },
+        "targets": [
+          {
+            "expr": "effective_classification_accuracy",
+            "refId": "A"
+          }
+        ],
+        "options": {
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percentunit",
+            "min": 0,
+            "max": 1,
+            "thresholds": {
+              "steps": [
+                { "value": 0, "color": "red" },
+                { "value": 0.7, "color": "yellow" },
+                { "value": 0.85, "color": "green" }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "title": "⚠️ Escalation Rate",
+        "type": "gauge",
+        "gridPos": { "x": 6, "y": 24, "w": 6, "h": 6 },
+        "targets": [
+          {
+            "expr": "human_escalation_rate",
+            "refId": "A"
+          }
+        ],
+        "options": {
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percentunit",
+            "min": 0,
+            "max": 1,
+            "thresholds": {
+              "steps": [
+                { "value": 0, "color": "green" },
+                { "value": 0.3, "color": "yellow" },
+                { "value": 0.5, "color": "red" }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "title": "🔧 Mastra Tool Execution Latency",
+        "type": "graph",
+        "gridPos": { "x": 12, "y": 24, "w": 12, "h": 6 },
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(mastra_tool_execution_latency_seconds_bucket[5m]))",
+            "legendFormat": "{{tool_id}} (p95)",
+            "refId": "A"
+          }
+        ],
+        "yaxes": [
+          {
+            "format": "s",
+            "label": "Latency"
+          }
+        ]
+      },
+      {
+        "title": "💾 Time Saved Per Incident",
+        "type": "graph",
+        "gridPos": { "x": 0, "y": 30, "w": 12, "h": 8 },
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.50, rate(incident_time_saved_seconds_bucket[5m]))",
+            "legendFormat": "p50 - {{decision}}",
+            "refId": "A"
+          },
+          {
+            "expr": "histogram_quantile(0.95, rate(incident_time_saved_seconds_bucket[5m]))",
+            "legendFormat": "p95 - {{decision}}",
+            "refId": "B"
+          }
+        ],
+        "yaxes": [
+          {
+            "format": "s",
+            "label": "Time Saved"
+          }
+        ]
+      },
+      {
+        "title": "🚦 Uncertainty Detector Triggers",
+        "type": "graph",
+        "gridPos": { "x": 12, "y": 30, "w": 12, "h": 8 },
+        "targets": [
+          {
+            "expr": "sum by (detector) (rate(uncertainty_detector_triggers_total[5m]))",
+            "legendFormat": "{{detector}}",
+            "refId": "A"
+          }
+        ]
+      }
+    ]
+}

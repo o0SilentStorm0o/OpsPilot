@@ -1,0 +1,150 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# ====================
+# LOCAL MODELS (CRITICAL!)
+# ====================
+# Never commit multi-GB model files to GitHub!
+# Download with: python ml/download_models.py
+models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# Training outputs
+ml/outputs/
+tensorboard/
+wandb/
+runs/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Next.js
+.next/
+out/
+
+# Production
+/build
+
+# Misc
+.DS_Store
+*.pem
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+*.log
+
+# ML
+ml/models/
+ml/checkpoints/
+ml/wandb/
+ml/archive/
+ml/benchmark_results/
+*.pt
+*.pth
+*.bin
+!ml/models/.gitkeep
+
+# Monitoring
+monitoring-data/
+
+# ====================
+# DOCUMENTATION (Internal/Redundant)
+# ====================
+# Keep only: README.md, SETUP.md, CONTRIBUTING.md, AI_ETHICS.md, ml/model_card.md
+JOB_REQUIREMENTS_MAPPING.md
+PROJECT_SUMMARY.md
+PROJECT_ASSESSMENT.md
+OPSPILOT_2.0_STATUS.md
+USER_GUIDE.md
+RETRAINING_GUIDE.md
+RELEASE.md
+QUICKSTART.md
+MASTRA_COMPLETE.md
+monitoring/MONITORING_COMPLETE.md
+monitoring/MONITORING_GUIDE.md
+ml/DOCUMENTATION.md
+ml/data_analysis/ANALYSIS_SUMMARY.md
+ml/data_analysis/EXPANSION_RESULTS.md
+ml/data_analysis/QUICKSTART.md
+ml/data_analysis/expansion_plan/active_learning_candidates.md
+ml/data_analysis/expansion_plan/data_collection_template.md
+docs/TRAINING_GUIDE.md
+docs/MODELS.md
+docs/ETHICS_AND_PRIVACY.md
+docs/TRAIN_REPORT.md
+backend/src/mastra/INTERVIEW_PITCH.md
+backend/src/mastra/PHI3_MASTRA_COMPLETE.md
+backend/src/mastra/SUCCESS.md
+
+# ====================
+# SCRIPTS (Debug/Dev/Obsolete)
+# ====================
+# Keep only: ml/server_production.py, ml/download_models.py, ml/train_model_classification.py, ml/evaluate.py
+debug_scoring.py
+ml/test_v6_model.py
+ml/benchmark.py
+ml/benchmark_fixed.py
+ml/DEPLOYMENT_GUIDE.py
+ml/server.py
+ml/train_model.py
+ml/inference.py
+ml/uncertainty_estimator.py
+ml/upload_to_hub.py
+ml/visualize_confusion_matrix.py
+ml/data_analysis/
+*.ps1
+backend/diagnose-hf.sh
+backend/find-working-model.sh
+backend/test-*.sh
+backend/test-*.js
+
+# ====================
+# DATASETS (Obsolete/Experimental)
+# ====================
+# Keep only: ml/datasets/incident_logs_v5_train.csv, ml/datasets/internal_docs.jsonl, ml/datasets/test_data.json
+ml/datasets/incident_logs.csv
+ml/datasets/incident_logs_improved.csv
+ml/datasets/incident_logs_large.csv
+ml/datasets/incident_logs_v4.csv
+ml/datasets/incident_logs_v5.csv
+ml/datasets/incident_logs_v5_balanced.csv
+ml/datasets/incidents_classification_improved.csv
+ml/datasets/incidents_improved.csv
+ml/datasets/train_incidents_simple.csv
+ml/datasets/test_incidents_extended.csv
+ml/datasets/train_rag_aware_v1.csv
+ml/datasets/rag_corpus_categorized.csv
+ml/datasets/internal_docs_extended.jsonl
+ml/datasets/training_data.json
+ml/datasets/validation_data.json
+ml/datasets/train_rag_aware_v1_samples.txt

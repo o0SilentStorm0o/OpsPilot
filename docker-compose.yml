@@ -1,0 +1,85 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - HF_TOKEN=${HF_TOKEN}
+      - PORT=3001
+      - NODE_OPTIONS=--dns-result-order=ipv4first
+    # volumes: # Disabled for production - using compiled dist
+      # - ./backend/src:/app/backend/src
+      # - ./ml:/app/ml
+    depends_on:
+      - ml-service
+    networks:
+      - opspilot-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:3001
+    depends_on:
+      - backend
+    networks:
+      - opspilot-network
+
+  ml-service:
+    build:
+      context: .
+      dockerfile: ml/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - HF_TOKEN=${HF_TOKEN}
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./ml:/app/ml
+      - ml-models:/app/ml/models
+    networks:
+      - opspilot-network
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    networks:
+      - opspilot-network
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3002:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
+      - ./monitoring/grafana/dashboards:/etc/grafana/dashboards
+    depends_on:
+      - prometheus
+    networks:
+      - opspilot-network
+
+networks:
+  opspilot-network:
+    driver: bridge
+
+volumes:
+  ml-models:
+  prometheus-data:
+  grafana-data:
