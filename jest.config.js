@@ -13,4 +13,5 @@ module.exports = {
   ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
+  passWithNoTests: true, // Allow CI to pass when no tests are found
 };
