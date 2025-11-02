@@ -59,7 +59,7 @@ jobs:
           --learning-rate 2e-5
       
     - name: Upload model artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: trained-model
         path: ml/outputs/opspilot-phi3-lora-${{ github.run_number }}/
@@ -79,7 +79,7 @@ jobs:
       uses: actions/checkout@v4
     
     - name: Download model
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: trained-model
         path: ml/outputs/current-model/
@@ -107,7 +107,7 @@ jobs:
         echo "✅ Evaluation completed (or skipped)"
     
     - name: Upload evaluation results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: evaluation-results
         path: ml/outputs/evaluations/
@@ -139,7 +139,7 @@ jobs:
       uses: actions/checkout@v4
     
     - name: Download model
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: trained-model
         path: ml/outputs/current-model/
@@ -186,7 +186,7 @@ jobs:
     
     steps:
     - name: Download model
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: trained-model
         path: ml/outputs/current-model/
