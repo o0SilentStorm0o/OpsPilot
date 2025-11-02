@@ -1,0 +1,127 @@
+name: Model Training (Manual Only)
+
+on:
+  # ONLY manual trigger - not needed for regular CI/CD
+  workflow_dispatch:
+    inputs:
+      dataset_version:
+        description: 'Dataset version to train on'
+        required: false
+        default: 'v5'
+      epochs:
+        description: 'Number of training epochs'
+        required: false
+        default: '20'
+      upload_to_hf:
+        description: 'Upload trained model to HuggingFace'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+env:
+  PYTHON_VERSION: '3.11'
+  HF_MODEL_REPO: 'SilentStorm99/opspilot-phi3-lora-v6'
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120  # 2 hours max
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-training-${{ hashFiles('ml/requirements.txt') }}
+    
+    - name: Install dependencies
+      run: |
+        pip install -r ml/requirements.txt
+        pip install huggingface_hub
+    
+    - name: Train model
+      env:
+        PHI3_MODEL_PATH: "microsoft/Phi-3-mini-4k-instruct"
+        HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      run: |
+        cd ml
+        echo "🚀 Starting model training..."
+        echo "📊 Configuration:"
+        echo "  - Dataset: incident_logs_${{ github.event.inputs.dataset_version }}_train.csv"
+        echo "  - Epochs: ${{ github.event.inputs.epochs }}"
+        echo "  - Base model: microsoft/Phi-3-mini-4k-instruct"
+        
+        python train_model_classification.py \
+          --dataset datasets/incident_logs_${{ github.event.inputs.dataset_version }}_train.csv \
+          --output outputs/lora_phi3_${{ github.event.inputs.dataset_version }}/final \
+          --epochs ${{ github.event.inputs.epochs }} \
+          --batch-size 1 \
+          --learning-rate 1e-4
+    
+    - name: Upload model artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: trained-model-run-${{ github.run_number }}
+        path: ml/outputs/lora_phi3_${{ github.event.inputs.dataset_version }}/final/
+        retention-days: 30
+    
+    - name: Upload to HuggingFace
+      if: github.event.inputs.upload_to_hf == 'true'
+      env:
+        HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      run: |
+        cd ml
+        echo "📤 Uploading trained model to HuggingFace..."
+        python -c "
+        from huggingface_hub import HfApi
+        from datetime import datetime
+        
+        api = HfApi(token='${{ secrets.HF_TOKEN }}')
+        
+        commit_msg = f'''
+        Training Run #{{{ github.run_number }}}
+        
+        - Dataset: ${{ github.event.inputs.dataset_version }}
+        - Epochs: ${{ github.event.inputs.epochs }}
+        - Trained: {datetime.utcnow().isoformat()}
+        - Workflow: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        '''
+        
+        api.upload_folder(
+            folder_path='outputs/lora_phi3_${{ github.event.inputs.dataset_version }}/final',
+            repo_id='${{ env.HF_MODEL_REPO }}',
+            repo_type='model',
+            commit_message=commit_msg.strip()
+        )
+        
+        print('✅ Model uploaded to HuggingFace')
+        print(f'🔗 View at: https://huggingface.co/${{ env.HF_MODEL_REPO }}')
+        "
+    
+    - name: Training summary
+      if: always()
+      run: |
+        echo "## 🎓 Model Training Results" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "- **Dataset Version:** ${{ github.event.inputs.dataset_version }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Epochs:** ${{ github.event.inputs.epochs }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Base Model:** microsoft/Phi-3-mini-4k-instruct" >> $GITHUB_STEP_SUMMARY
+        echo "- **Upload to HF:** ${{ github.event.inputs.upload_to_hf }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Training Status:** ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Run Number:** #${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ "${{ github.event.inputs.upload_to_hf }}" == "true" ]; then
+          echo "🔗 **Model URL:** https://huggingface.co/${{ env.HF_MODEL_REPO }}" >> $GITHUB_STEP_SUMMARY
+        fi
